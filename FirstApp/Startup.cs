@@ -9,26 +9,22 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace FirstApp
 {
+    // this class have the global configurations
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services like ADDMvc, AddDbContext. etc
+            // it supports the concept of Dependency Injection
         }
 
+        // configure is a middleware, a pipeline for HTTP request and response.
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseStaticFiles();//http://localhost:61983/home.html
         }
     }
 }

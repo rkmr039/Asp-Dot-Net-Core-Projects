@@ -12,14 +12,24 @@ namespace FirstApp
 {
     public class Program
     {
+        /*
+         * Execution of webapp starts with main() 
+         */
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            /*
+            * CreateDefaultBuilder() : Use Kestrel( cross-platform web server), set the ContentRootPath, etc.
+            * UseStartup<Startup>() : ConfigureServices(), Configure()
+            * Build() : Makes the server ready
+            * Run() : Start Listing
+            */
+            BuildWebHost(args).Run();// run the host
+
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .Build();
+                .Build();// build the host
     }
 }
